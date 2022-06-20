@@ -1,0 +1,22 @@
+.grid-cards{
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 20px;
+}
+
+.spinner {
+    fill: red;
+}
+
+@media (max-width: 900px) {
+    .grid-cards{
+        grid-template-columns: 50% 50%;
+    }
+}
+@media (max-width: 600px) {
+    .grid-cards{
+        grid-template-columns: 1fr;
+        width: 80vw;
+        margin:auto
+    }
+}
