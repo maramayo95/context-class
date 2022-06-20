@@ -1,44 +1,31 @@
-import {Table, Container} from 'react-bootstrap'
-
+import {Container, Button} from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { useCartContext } from '../../context/CartContext'
+import CartTableContainer from '../CartTableContainer/CartTableContainer'
 
 const CartView = () => {
+  const {cartList} = useCartContext()
+  
+  
   return (
     <Container>
-
-        <div className="mt-5">
+      {
+        cartList.length === 0 ? 
+        <div className=" d-flex justify-content-center flex-column align-items-center mt-5">
           <h1 className='text-center'>Carrito de Compras</h1>
-          
-      <Table className="mt-5" striped bordered hover variant="dark">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-    </div>
-    </Container>
+          <p className="text-center">Oops El carrito esta Vacío</p>
+          <LinkContainer to="/">
+            <Button variant="danger" onClick={() => console.log("Danger")}>Ir al Inicio</Button>
+          </LinkContainer>
+        </div> :
+           <div className="mt-5">
+           <h1 className='text-center'>Carrito de Compras</h1>
+           <CartTableContainer/>
+          </div>
+      }
+
+
+      </Container>
 
 
   )

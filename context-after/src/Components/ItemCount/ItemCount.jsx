@@ -22,12 +22,13 @@ const ItemCount = ({min, max, stock, product}) => {
         setCount(stock)
     }
 
-    function handleSubmit(){
+    function handleSubmit(e){
+        e.preventDefault()
         addToCart({
             quantity: count,
             product: product
         })
-        setCount(0)
+        setCount(stock)
     }
 
 

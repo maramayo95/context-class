@@ -21,6 +21,7 @@ export const CartContextProvider = ({ children }) => {
     } else {
       setCartList([...cartList, objProduct]);
     }
+    console.log(cartList)
   };
 
   const clearList = () => setCartList([]);
