@@ -15,7 +15,7 @@ const CartView = () => {
           <h1 className='text-center'>Carrito de Compras</h1>
           <p className="text-center">Oops El carrito esta Vacío</p>
           <LinkContainer to="/">
-            <Button variant="danger" onClick={() => console.log("Danger")}>Ir al Inicio</Button>
+            <Button variant="danger">Ir al Inicio</Button>
           </LinkContainer>
         </div> :
            <div className="mt-5">

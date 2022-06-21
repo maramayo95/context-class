@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
             setLoading(false)
         })
             .catch(err => console.log(`No se ha podido traer los productos debido al error ${err}`))
-            .finally(console.log(data))
+            // .finally(console.log(data))
     }, [productoId])
   
     return (

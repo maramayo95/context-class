@@ -3,7 +3,7 @@ import { Card, Button } from 'react-bootstrap'
 import { useCartContext } from '../../context/CartContext'
 import './ItemCount.css'
 
-const ItemCount = ({min, max, stock, product}) => {
+const ItemCount = ({min, max, stock, data}) => {
     const [count, setCount] = useState(stock)
     const {addToCart} = useCartContext()
     function add(){
@@ -22,13 +22,12 @@ const ItemCount = ({min, max, stock, product}) => {
         setCount(stock)
     }
 
-    function handleSubmit(e){
-        e.preventDefault()
+    function handleSubmit(){
         addToCart({
             quantity: count,
-            product: product
+            product: data
         })
-        setCount(stock)
+        
     }
 
 

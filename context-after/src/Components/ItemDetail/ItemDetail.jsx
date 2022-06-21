@@ -36,7 +36,7 @@ const ItemDetail = ({ data }) => {
             <Alert variant="dark">
               <p>{data.description}</p>
             </Alert>
-            <ItemCount product={data} stock={5} max={5} min={1} />
+            <ItemCount data={data} stock={5} max={5} min={1} />
             
             <div className="d-flex justify-content-center mt-3">
               <LinkContainer to="/">
