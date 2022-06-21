@@ -15,6 +15,7 @@ const CartTableContainer = () => {
                         <th>Nombre</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
+                        <th>X</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +28,7 @@ const CartTableContainer = () => {
                 </tbody>
                 <tbody>
                     <tr>
-                        <th>Total: {totalPrice()}</th>
+                        <th>Total: $ {totalPrice()}</th>
                     </tr>
                 </tbody>
             </Table>
