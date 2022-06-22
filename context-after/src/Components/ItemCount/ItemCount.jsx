@@ -3,8 +3,8 @@ import { Card, Button } from 'react-bootstrap'
 import { useCartContext } from '../../context/CartContext'
 import './ItemCount.css'
 
-const ItemCount = ({min, max, stock, data}) => {
-    const [count, setCount] = useState(stock)
+const ItemCount = ({min, max,  data , onAdd}) => {
+    const [count, setCount] = useState(min)
     const {addToCart} = useCartContext()
     function add(){
         if(count < max) {
@@ -19,7 +19,7 @@ const ItemCount = ({min, max, stock, data}) => {
     }
 
     function reset(){
-        setCount(stock)
+        setCount(min)
     }
 
     function handleSubmit(){
@@ -27,6 +27,7 @@ const ItemCount = ({min, max, stock, data}) => {
             quantity: count,
             product: data
         })
+        onAdd(true)
         
     }
 
@@ -37,9 +38,9 @@ const ItemCount = ({min, max, stock, data}) => {
                 <Card.Body>
                     <Card.Title className="text-center">Cantidad : {count}</Card.Title>
                     <div className="d-flex justify-content-center botones-contador">
-                    <Button variant="danger" onClick={add}>+</Button>
-                    <Button variant="danger" onClick={reset}>Reset</Button>
                     <Button variant="danger" onClick={substraction}>-</Button>
+                    <Button variant="danger" onClick={reset}>Reset</Button>
+                    <Button variant="danger" onClick={add}>+</Button>
                     </div> 
                     <div className="d-flex justify-content-center mt-3">
                     <Button variant="danger" onClick={handleSubmit} >Comprar</Button>

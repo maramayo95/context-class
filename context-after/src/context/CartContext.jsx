@@ -10,13 +10,9 @@ export const CartContextProvider = ({ children }) => {
   const addToCart = (objProduct) => {
     
     let carritoprevio = [...cartList];
-    if (
-      carritoprevio.some((idex) => idex.product.id === objProduct.product.id)
-    ) {
-      carritoprevio.find(
-        (idex) => idex.product.id === objProduct.product.id
-      ).quantity += objProduct.quantity;
-
+    if (carritoprevio.some((item) => item.product.id === objProduct.product.id)) 
+    {
+      carritoprevio.find((item) => item.product.id === objProduct.product.id).quantity += objProduct.quantity;
       setCartList(carritoprevio);
     } else {
       setCartList([...cartList, objProduct]);
@@ -42,8 +38,8 @@ export const CartContextProvider = ({ children }) => {
     setCartList(cartList.filter((newProduct) => newProduct.product.id !== id));
   };
 
-  const iconCart = () =>
-    cartList.reduce((acum, valor) => acum + valor.quantity, 0);
+  const iconCart = () => cartList.reduce((acum, valor) => acum + valor.quantity, 0);
+
 
   return (
     <CartContext.Provider

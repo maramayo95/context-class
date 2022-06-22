@@ -1,9 +1,14 @@
+import {useState} from 'react'
 import { Table, Container, Alert, Button } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 const ItemDetail = ({ data }) => {
   // console.log(data)
+  
+  const [addedToCart, setAddedToCart] = useState(false)
+  
   return (
     <div>
       <Container >
@@ -36,7 +41,15 @@ const ItemDetail = ({ data }) => {
             <Alert variant="dark">
               <p>{data.description}</p>
             </Alert>
-            <ItemCount data={data} stock={5} max={5} min={1} />
+            { addedToCart ? <>
+              <Link className="btn btn-danger" to="/carrito"> Ir al Carrito </Link> 
+            </>
+              : 
+                          
+              <ItemCount data={data} onAdd={setAddedToCart}  max={5} min={1} />
+            
+
+            }
             
             <div className="d-flex justify-content-center mt-3">
               <LinkContainer to="/">

@@ -5,10 +5,11 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CartView from './Components/CartView/CartView';
-import { createContext } from 'react';
+// import { createContext } from 'react';
 import {CartContextProvider} from './context/CartContext';
 
-export const contextApp = createContext()
+// export const contextApp = createContext()
+
 function App() {
 
   return (

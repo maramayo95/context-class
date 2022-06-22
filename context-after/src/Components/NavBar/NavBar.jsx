@@ -1,10 +1,12 @@
-import {Navbar, Nav, Container } from 'react-bootstrap'
+import {Navbar, Nav, Container, Button , Badge } from 'react-bootstrap'
 import TokyoLogo2 from '../../img/SvgTokyoS.svg'
 import {LinkContainer} from 'react-router-bootstrap'
+import { useCartContext } from '../../context/CartContext'
 import './NavBar.css'
-
-
 const NavBar = () => {
+
+    const {iconCart, cartList} = useCartContext()
+
     return (
         <>
             <Navbar bg="dark" variant="dark" expand="lg">
@@ -17,15 +19,17 @@ const NavBar = () => {
                         <Nav className="me-auto">
                           <LinkContainer to={`categorias/anime`}>
                             <Nav.Link>Anime</Nav.Link>
-                          </LinkContainer> 
+                          </LinkContainer>
                           <LinkContainer to={`categorias/clasicos`}>
                               <Nav.Link>Clasicos</Nav.Link>
-                          </LinkContainer>                         
+                          </LinkContainer>
                             <LinkContainer to={`categorias/novedades`}>
                                 <Nav.Link>Novedades</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to="/carrito">
-                                <Nav.Link>Carrito</Nav.Link>
+                                <Button variant="danger">
+                                  Carrito  <Badge bg="primary">{cartList.length === 0 ? 0 : iconCart()}</Badge>
+                                </Button>
                             </LinkContainer>
                         </Nav>
                     </Navbar.Collapse>

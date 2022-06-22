@@ -5,7 +5,7 @@ import CartTable from '../CartTable/CartTable'
 
 const CartTableContainer = () => {
     const { cartList, totalPrice, clearList } = useCartContext()
-    
+
     return (
         <Container>
             <Table className="mt-5" striped bordered hover variant="dark">
@@ -15,14 +15,13 @@ const CartTableContainer = () => {
                         <th>Nombre</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
-                        <th>X</th>
+                        <th>Borrar</th>
                     </tr>
                 </thead>
                 <tbody>
                 
                     {
-                        
-                        cartList.length > 0 && cartList.map((item,index) => ( <CartTable item={item} key={index} /> ))
+                         cartList.map((item) => ( <CartTable item={item} key={item.product.id} /> ))
                     }
 
                 </tbody>
