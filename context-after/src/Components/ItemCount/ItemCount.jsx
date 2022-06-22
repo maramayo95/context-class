@@ -6,6 +6,7 @@ import './ItemCount.css'
 const ItemCount = ({min, max,  data , onAdd}) => {
     const [count, setCount] = useState(min)
     const {addToCart} = useCartContext()
+    
     function add(){
         if(count < max) {
                 setCount(count + 1)

@@ -5,16 +5,22 @@ import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CartView from './Components/CartView/CartView';
-// import { createContext } from 'react';
-import {CartContextProvider} from './context/CartContext';
 
-// export const contextApp = createContext()
+import {CartContextProvider} from './context/CartContext';
+import {Helmet} from 'react-helmet'
+
 
 function App() {
 
   return (
     <div>
       <CartContextProvider>
+        <Helmet>
+            <title>Tokyo Spirits</title>
+            <meta name="description" content="Nested component" />
+            <meta name="keywords" content="anime, tokyo, etc" />
+            <meta name="description" content="Una pagina destinada a la venta de Anime" />
+        </Helmet>
         <BrowserRouter>
           <NavBar />
           <Routes>
