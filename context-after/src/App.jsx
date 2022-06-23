@@ -16,8 +16,7 @@ function App() {
     <div>
       <CartContextProvider>
         <Helmet>
-            <title>Tokyo Spirits</title>
-            <meta name="description" content="Nested component" />
+            <title>Tokyo Ghost</title>
             <meta name="keywords" content="anime, tokyo, etc" />
             <meta name="description" content="Una pagina destinada a la venta de Anime" />
         </Helmet>

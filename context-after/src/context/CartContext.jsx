@@ -11,6 +11,7 @@ export const CartContextProvider = ({ children }) => {
   const addToCart = (objProduct) => {
     
     let carritoprevio = [...cartList];
+    
     if (carritoprevio.some((item) => item.product.id === objProduct.product.id)) 
     {
       carritoprevio.find((item) => item.product.id === objProduct.product.id).quantity += objProduct.quantity;
